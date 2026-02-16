@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آهنگ ها</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Tahoma,sans-serif;
+    direction:rtl;
+    background:#ffffff;
+    color:#222;
+    text-align:center;
+}
+
+/* هدر */
+#header{
+    background:linear-gradient(90deg,#1500ff,#ad41ff);
+    padding:15px 20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+#header ul{
+    list-style:none;
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    gap:10px;
+    justify-content:center;
+}
+#header a{
+    color:rgb(255, 255, 255);
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:8px;
+    transition:0.3s;
+    font-weight:bold;
+}
+#header a:hover{
+    background:yellow;
+    color:black;
+}
+
+/* باکس آهنگ */
+.song-box{
+    background:#f5f5f5;
+    width:60%;
+    max-width:500px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+.song-title{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+    color:#6a00f4;
+}
+audio{
+    width:100%;
+}
+
+/* واکنش‌گرایی موبایل */
+@media screen and (max-width:600px){
+    .song-box{
+        width:90%;
+        padding:15px;
+    }
+    .song-title{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="header">
+<ul>
+    <li><a href="donate.html">حمایت</a></li>
+    <li><a href="comment.html">نظرات سایت</a></li>
+    <li><a href="messenger.html">فضای ذخیره سازی پیام</a></li>
+    <li><a href="video.html">فیلم</a></li>
+    <li><a href="signup.html">ورود</a></li>
+    <li><a href="Registration.html">ثبت نام</a></li>
+    <li><a href="game.html">سرگرمی</a></li>
+    <li><a href="index.html">صفحه اصلی</a></li>
+    <li><a href="song.html">آهنگ ها</a></li>
+    <li><a href="about.html">درباره ما</a></li>
+</ul>
+</div>
+
+<!-- آهنگ‌ها -->
+<div class="song-box">
+<div class="song-title">تولدت مبارک باب اسفنجی</div>
+<audio controls>
+<source src="a.mp3.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-box">
+<div class="song-title">عمری به هر کویی گذر</div>
+<audio controls>
+<source src="Omri Be Har Koy (320).mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-box">
+<div class="song-title">تو مکه عشقی معین</div>
+<audio controls>
+<source src="Unknown Artist - Make Eshghi - 320.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="song-box">
+<div class="song-title">من از این دنیا چی میخوام</div>
+<audio controls>
+<source src="man az in donya.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+</body>
+</html>

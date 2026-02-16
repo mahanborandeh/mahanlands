@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+
+<!-- مهم برای موبایل -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ماهان لند</title>
+
+<style>
+
+/* ===== ریست ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ===== بدنه ===== */
+body{
+    direction: rtl;
+    font-family: sans-serif;
+    background:#ffffff;
+    color:#222;
+}
+
+/* ===== هدر ===== */
+#header{
+    background: linear-gradient(90deg,#1500ff,#ad41ff);
+    padding:15px 30px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+#header ul{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:15px;
+}
+
+#header li{
+    display:inline;
+}
+
+/* لینک‌ها */
+#header a{
+    color:white;
+    text-decoration:none;
+    padding:6px 10px;
+    border-radius:8px;
+    transition:0.3s;
+    font-weight:bold;
+    font-size:13px;
+}
+
+/* هاور */
+#header a:hover{
+    background:yellow;
+    color:black;
+}
+
+/* ===== نام کاربری ===== */
+#username-display{
+    cursor:pointer;
+    color:#00008b;
+    font-weight:bold;
+}
+
+/* ===== باکس پروفایل ===== */
+#profile-box{
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:white;
+    border:1px solid #ccc;
+    padding:15px;
+    border-radius:12px;
+    width:220px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+    transition:0.3s;
+    z-index:100;
+}
+
+#profile-box.active{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+}
+
+#profile-box p{
+    margin:6px 0;
+}
+
+/* ===== محتوا ===== */
+#content{
+    background:#ffff00;
+    margin:40px auto;
+    padding:25px;
+    width:80%;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+#content h1{
+    margin-bottom:15px;
+    color:#6a00f4;
+}
+
+/* لیست */
+ul{
+    margin:20px 40px;
+}
+
+ul li{
+    margin:8px 0;
+}
+
+/* دکمه خروج */
+#logout-btn{
+    background:#ff4d4d;
+    padding:6px 12px;
+    border-radius:8px;
+}
+
+#logout-btn:hover{
+    background:yellow;
+    color:black;
+}
+
+/* ================= موبایل ================= */
+@media (max-width: 768px){
+
+    #header{
+        padding:10px;
+    }
+
+    #header ul{
+        justify-content:center;
+        gap:10px;
+    }
+
+    #header a{
+        font-size:12px;
+        padding:5px 8px;
+    }
+
+    #content{
+        width:95%;
+        margin:20px auto;
+        padding:15px;
+    }
+
+    #content h1{
+        font-size:18px;
+    }
+
+    #content p{
+        font-size:14px;
+    }
+
+    ul{
+        margin:10px 20px;
+        font-size:14px;
+    }
+
+    /* باکس پروفایل وسط موبایل */
+    #profile-box{
+        right:50%;
+        transform:translateX(50%) translateY(-10px);
+        width:90%;
+        max-width:300px;
+    }
+
+    #profile-box.active{
+        transform:translateX(50%) translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== منو ===== -->
+<div id="header">
+<ul>
+    <li><a href="donate.html">حمایت</a></li>
+    <li><a href="comment.html">نظرات سایت</a></li>
+    <li><a href="messenger.html">فضای ذخیره سازی پیام</a></li>
+    <li><a href="video.html">فیلم</a></li>
+    <li><a href="signup.html">ورود</a></li>
+    <li><a href="Registration.html">ثبت نام</a></li>
+    <li><a href="game.html">سرگرمی</a></li>
+    <li><a href="index.html">صفحه اصلی</a></li>
+    <li><a href="song.html">آهنگ ها</a></li>
+    <li><a href="about.html">درباره ما</a></li>
+
+    <li id="username-display"></li>
+
+    <li>
+        <a href="javascript:void(0);" id="logout-btn" style="display:none;">
+            خروج
+        </a>
+    </li>
+</ul>
+</div>
+
+<!-- ===== پروفایل ===== -->
+<div id="profile-box">
+<p id="profile-username"></p>
+<p id="profile-password"></p>
+</div>
+
+<!-- ===== محتوا ===== -->
+<div id="content">
+<h1>سلام خوش آمدید</h1>
+<p>سلام من ماهان هستم و ممنون که به سایت من سر زدید</p>
+</div>
+
+<p style="margin-right:40px;">امکانات سایت ما</p>
+<ul>
+<li>آهنگ</li>
+<li>فیلم</li>
+<li>فضای ذخیره سازی پیام</li>
+</ul>
+
+<!-- ===== اسکریپت ===== -->
+<script>
+const username = localStorage.getItem('username');
+const password = localStorage.getItem('password');
+
+const usernameDisplay = document.getElementById('username-display');
+const logoutBtn = document.getElementById('logout-btn');
+
+const profileBox = document.getElementById('profile-box');
+const profileUsername = document.getElementById('profile-username');
+const profilePassword = document.getElementById('profile-password');
+
+if (username) {
+
+    usernameDisplay.textContent = `نام کاربری: ${username}`;
+    logoutBtn.style.display = 'inline';
+
+    profileUsername.textContent = `نام: ${username}`;
+    profilePassword.textContent = `رمز: ${password}`;
+
+    usernameDisplay.addEventListener('click', () => {
+        profileBox.classList.toggle('active');
+    });
+
+    logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        alert('شما خارج شدید');
+        location.href = 'index.html';
+    });
+
+}
+</script>
+
+</body>
+</html>

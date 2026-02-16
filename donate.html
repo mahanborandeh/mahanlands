@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+
+<!-- خیلی مهم برای سازگاری با موبایل -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>حمایت مالی | ماهان لند</title>
+
+<style>
+body{
+    direction: rtl;
+    font-family: sans-serif;
+    background: linear-gradient(120deg,#1500ff,#ad41ff);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0;
+    padding:0;
+}
+
+/* باکس اصلی */
+.box{
+    background:white;
+    padding:30px;
+    width:350px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+h1{
+    margin-bottom:15px;
+    color:#6a00f4;
+}
+
+p{
+    margin-bottom:20px;
+    color:#333;
+    line-height:1.6;
+}
+
+/* فیلد ورودی */
+input{
+    width:100%;
+    padding:10px;
+    font-size:16px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+/* دکمه */
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#6a00f4;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4b00c2;
+}
+
+.note{
+    margin-top:15px;
+    font-size:13px;
+    color:#555;
+}
+
+/* ===== برای موبایل ===== */
+@media (max-width: 480px) {
+
+    body{
+        height:auto;
+        min-height:100vh;
+        padding:20px;
+    }
+
+    .box{
+        width:100%;
+        max-width:320px;
+        padding:20px;
+        border-radius:15px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+
+    p{
+        font-size:14px;
+    }
+
+    input{
+        font-size:14px;
+        padding:8px;
+    }
+
+    button{
+        font-size:15px;
+        padding:10px;
+    }
+
+    .note{
+        font-size:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>❤️ دونیت</h1>
+    <p>اگر دوست داشتی از ماهان لند حمایت کن</p>
+
+    <input type="number" id="amount" placeholder="مبلغ (تومان)">
+
+    <button onclick="pay()">پرداخت با ریمیت</button>
+
+    <div class="note">
+        پرداخت امن از طریق <strong>Remit</strong>
+    </div>
+</div>
+
+<script>
+function pay(){
+    const amount = document.getElementById("amount").value.trim();
+
+    if(!amount || amount < 1000){
+        alert("❌ حداقل مبلغ ۱۰۰۰ تومان است");
+        return;
+    }
+
+    // لینک مستقیم ریمیت
+    const remitLink = "https://reymit.ir/mahanlegendgang";
+
+    // انتقال به صفحه پرداخت
+    window.location.href = remitLink;
+}
+</script>
+
+</body>
+</html>

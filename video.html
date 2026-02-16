@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فیلم</title>
+<style>
+body{
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+/* شبکه فیلم‌ها */
+.video-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* کارت هر فیلم */
+.video-card{
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* بزرگ شدن کارت هنگام هاور */
+.video-card:hover{
+    transform: scale(1.03);
+}
+
+/* ویدیو داخل کارت */
+.video-card video{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* عنوان فیلم */
+.video-title{
+    color: #fff;
+    padding: 8px;
+    font-weight: bold;
+    background: rgba(0,0,0,0.6);
+}
+</style>
+</head>
+<body>
+
+<h1>فیلم‌های سایت ماهان</h1>
+
+<div class="video-grid">
+
+    <div class="video-card">
+        <iframe
+            src="https://www.aparat.com/video/video/embed/videohash/jdyr7j3/vt/frame"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            webkitallowfullscreen
+            mozallowfullscreen
+            width="100%"
+            height="315"
+            frameborder="0">
+        </iframe>
+    
+        <div class="video-title">باب اسفنجی</div>
+    </div>
+
+    <div class="video-card">
+        <iframe
+            src="https://www.aparat.com/video/video/embed/videohash/dxyg72l/vt/frame"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            webkitallowfullscreen
+            mozallowfullscreen
+            width="100%"
+            height="315"
+            frameborder="0">
+        </iframe>
+    
+        <div class="video-title">فیلم سینمایی پلانکتون</div>
+    </div>
+
+    <div class="video-card">
+        <iframe
+            src="https://www.aparat.com/video/video/embed/videohash/w474649/vt/frame"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            webkitallowfullscreen
+            mozallowfullscreen
+            width="100%"
+            height="315"
+            frameborder="0">
+        </iframe>
+    
+        <div class="video-title">
+            فیلم سینمایی باب اسفنجی: در جست‌وجوی شلوار مکعبی
+        </div>
+    </div>
+
+    <div class="video-card">
+        <iframe
+            src="https://www.aparat.com/video/video/embed/videohash/kfk2216/vt/frame"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            webkitallowfullscreen
+            mozallowfullscreen
+            width="100%"
+            height="315"
+            frameborder="0">
+        </iframe>
+    
+        <div class="video-title">فیلم سینمایی گارفیلد</div>
+    </div>
+
+</div>
+
+</body>
+</html>

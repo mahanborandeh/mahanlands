@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ثبت‌نام</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+.signup-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 350px;
+}
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1500ff;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #1500ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(21,0,255,0.5);
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg,#1500ff,#ad41ff);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background: linear-gradient(90deg,#ad41ff,#1500ff);
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    display: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* واکنش‌گرایی موبایل */
+@media screen and (max-width: 400px) {
+    .signup-container {
+        padding: 20px;
+    }
+    .signup-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .input-group input {
+        padding: 8px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="signup-container">
+    <h2>ساخت حساب کاربری</h2>
+    <div class="error-message" id="error-message">لطفاً نام کاربری و رمز عبور را وارد کنید.</div>
+    <form id="signup-form">
+        <div class="input-group">
+            <label for="username">نام کاربری</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">رمز عبور</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="signup-btn">ثبت‌نام</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('signup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if(username && password){
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        alert('حساب کاربری شما با موفقیت ساخته شد!');
+        window.location.href = 'index.html';
+    } else {
+        document.getElementById('error-message').style.display = 'block';
+    }
+});
+</script>
+
+</body>
+</html>
